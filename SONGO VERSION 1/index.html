@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jeu de Songo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bandeau-top"></div>
+
+  <div class="conteneur-principal">
+
+    <header>
+      <div class="titre-bloc">
+        <div class="ornement">❧</div>
+        <h1>SONGO</h1>
+        <div class="ornement">❧</div>
+      </div>
+      <div class="sous-titre">Jeu traditionnel Ekang</div>
+    </header>
+
+    <!-- ══ MENU MODE ══ -->
+    <div id="menu-mode">
+      <div class="menu-titre">Choisir le mode de jeu</div>
+      <button class="btn-menu" onclick="choisirPvP()">👥 Joueur vs Joueur</button>
+      <button class="btn-menu btn-pvc" onclick="choisirPvC()">🤖 Joueur vs Ordinateur</button>
+    </div>
+
+    <!-- ══ MENU NIVEAU IA ══ -->
+    <div id="menu-niveau" style="display:none">
+      <div class="menu-titre">Choisir le niveau de l'ordinateur</div>
+      <button class="btn-niveau niveau-facile"        onclick="choisirNiveau('facile')">
+        🌱 Facile <span class="niveau-desc">L'IA joue au hasard</span>
+      </button>
+      <button class="btn-niveau niveau-moyen"         onclick="choisirNiveau('moyen')">
+        🌿 Moyen <span class="niveau-desc">L'IA cherche à récolter</span>
+      </button>
+      <button class="btn-niveau niveau-difficile"     onclick="choisirNiveau('difficile')">
+        🌳 Difficile <span class="niveau-desc">L'IA maximise ses récoltes</span>
+      </button>
+      <button class="btn-niveau niveau-tres-difficile" onclick="choisirNiveau('tres_difficile')">
+        🔥 Très Difficile <span class="niveau-desc">L'IA anticipe tes coups</span>
+      </button>
+      <button class="btn-niveau niveau-maitre"        onclick="choisirNiveau('maitre')">
+        👑 Maître <span class="niveau-desc">L'IA calcule plusieurs coups à l'avance</span>
+      </button>
+      <button class="btn-retour" onclick="afficherMenuMode()">← Retour</button>
+    </div>
+
+    <!-- ══ ZONE DE JEU ══ -->
+    <div id="zone-jeu-principale" style="display:none">
+
+      <div id="scores">
+        <div class="score-bloc nord">
+          <div class="score-label" id="label-nord">NORD</div>
+          <div class="score-valeur"><span id="pts-nord">0</span></div>
+          <div class="score-unit">graines</div>
+        </div>
+        <div id="tour-bloc">
+          <div class="tour-label">Tour de</div>
+          <div id="joueur-actif">SUD</div>
+        </div>
+        <div class="score-bloc sud">
+          <div class="score-label" id="label-sud">SUD</div>
+          <div class="score-valeur"><span id="pts-sud">0</span></div>
+          <div class="score-unit">graines</div>
+        </div>
+      </div>
+
+      <div id="info-mode"></div>
+      <div id="info-coup"></div>
+
+      <div id="plateau">
+        <div class="deco-laterale gauche">
+          <div class="losange"></div>
+          <div class="losange"></div>
+          <div class="losange"></div>
+        </div>
+        <div id="zone-jeu">
+          <div id="camp-nord" class="camp">
+            <div class="camp-label nord-label">◀ NORD</div>
+            <div class="rangee" id="rangee-nord"></div>
+          </div>
+          <div class="separateur"><div class="ligne-centrale"></div></div>
+          <div id="camp-sud" class="camp">
+            <div class="rangee" id="rangee-sud"></div>
+            <div class="camp-label sud-label">SUD ▶</div>
+          </div>
+        </div>
+        <div class="deco-laterale droite">
+          <div class="losange"></div>
+          <div class="losange"></div>
+          <div class="losange"></div>
+        </div>
+      </div>
+
+      <div id="message"></div>
+
+      <div class="boutons-jeu">
+        <button class="btn-action" onclick="initialiserJeu()">↺ Rejouer</button>
+        <button class="btn-action btn-retour-menu" onclick="retourMenu()">⌂ Menu</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="bandeau-bottom"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
